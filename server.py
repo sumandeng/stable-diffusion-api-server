@@ -21,7 +21,8 @@ def retrieve_param(key, data, cast, default):
 
 def pil_to_b64(input):
     buffer = BytesIO()
-    input.save( buffer, 'PNG' )
+    # input.save( buffer, 'PNG' )
+    input.save(buffer, 'JPEG')
     output = base64.b64encode( buffer.getvalue() ).decode( 'utf-8' ).replace( '\n', '' )
     buffer.close()
     return output
@@ -180,7 +181,8 @@ def _generate(task, engine=None):
             images.append({
                 'base64' : pil_to_b64( result['image'].convert( 'RGB' ) ),
                 'seed' : result['seed'],
-                'mimetype': 'image/png',
+                # 'mimetype': 'image/png',
+                'mimetype': 'image/jpeg',
                 'nsfw': result['nsfw']
             })
         output_data[ 'images' ] = images        
