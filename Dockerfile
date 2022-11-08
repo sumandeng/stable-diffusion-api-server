@@ -1,5 +1,5 @@
-# FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
-FROM nvidia/cuda:11.0.3-base-ubuntu20.04
+FROM ccr.ccs.tencentyun.com/tione-public-images/ti-infer-gpu-base:1.0.0
+# FROM nvidia/cuda:11.0.3-base-ubuntu20.04
 
 WORKDIR /app
 COPY *.py /app/
